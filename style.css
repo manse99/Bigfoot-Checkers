@@ -1,0 +1,135 @@
+.container {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px 10px;
+    grid-auto-flow: column;
+    grid-auto-flow: row;
+  justify-content: stretch;
+  align-content: stretch;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-areas:
+    "alive Bg1 Bg2"
+    "Bg3 SS Bg5"
+    "Bg6 Bg7 dead";
+    border-top: 10em;
+    border-left: 10em;
+    border-bottom: 10em;
+    border-right: 10em;
+    border-color: black;
+  width: 20em;
+  height: 20em;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+}
+
+#alive { grid-area: alive;
+border-style: solid;
+background-image: url(./img/Mr._Link.jpeg);
+
+}
+
+#dead { grid-area: dead;
+border-style: solid;
+background-image: url(./img/hunter.jpeg);
+
+}
+
+#Bg1 { grid-area: Bg1;
+ background: lightpink;
+ border-style: solid;
+
+}
+
+#Bg2 { grid-area: Bg2;
+background:aquamarine;
+ border-style: solid;
+
+}
+
+#Bg3 { grid-area: Bg3;
+ background:darkkhaki;
+ border-style: solid;
+
+}
+
+#SS { grid-area: SS;
+border-style: solid;
+background-image: url(./img/sasrun.jpeg);
+background-position: center;
+background-size: 180px;
+opacity: 75%;
+}
+
+#Bg5 { grid-area: Bg5;
+ background:lightslategray;
+ border-style: solid;
+
+}
+
+#Bg6 { grid-area: Bg6;
+ background:lavenderblush;
+ border-style: solid;
+
+}
+
+#Bg7 { grid-area: Bg7;
+ background:goldenrod;
+ border-style: solid;
+
+}
+
+#myBtn {
+position: relative;
+top: 50%;  
+left: 47%;
+background-color: #000000;
+color: azure;
+padding: 10px;
+border-radius: 10px;
+margin:10px
+}
+h1 {
+  color:cornsilk;
+}
+
+p {
+  font-family: fantasy;
+  font-size: x-large;
+    text-decoration: underline;
+    padding: 5px;
+    margin-top: auto;
+    margin-bottom: 50px;
+
+
+}
+.animate-characters {
+    text-transform: uppercase;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: linear-gradient(
+            -225deg,
+            #231557 0%,
+            #44107a 29%,
+            #ff1361 67%,
+            #fff800 100%
+    )}
+.animate-characters {
+background-size: 200% auto;
+background-clip: border-box;
+    -webkit-background-clip: border-box;
+background-clip: border-box;
+animation: textclip 2s linear infinite;
+display: inline-block;
+font-size: 190px;
+}
+
+@keyframes textclip {
+    from {
+      background-image: url(./img/hunter.jpeg);
+        background-position: 10% center;
+    }
+    to {
+        background-position: 100% center;
+    }
+}
