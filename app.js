@@ -21,35 +21,9 @@ function shuffle(array) {
 }
 
 
-/*function shuffle(array) {
-  let copy = [], n = array.length, i;
-  while (n) {
-    i = Math.floor(Math.random() * n--);
-    copy.push(array.splice(i, 1)[0]);
-  }
-  return copy;
-} */
-// this is our logic to determine if the player is a winner, loser or needs to continue
 
 
 
-
-// for (let i = 0; i < 9; i++) {
-//   let div = document.createElement('div')
-//   if(i == 0) {
-//     div.id = 'alive'
-//   }else if (i == 4){
-//     div.id = 'SS'
-//   } else if (i == 8){
-//     div.id = 'dead'
-//   } else {
-//     div.id = 'Bg' + i
-//   }
-// div.classList.add('cell')
-// SSrandomArray.push(div)
-
-// document.querySelector('.container').appendChild(div)
-// }
 
 function init() {
   for (let i = 0; i < 9; i++) {
@@ -74,7 +48,7 @@ function init() {
   ss.src = "./img/sasrun.jpeg";
   document.querySelector("#Bg4").append(ss);
 }
-
+// Calling the init() function created above
 init();
 
 function checkLogic(rand) {
@@ -88,7 +62,7 @@ function checkLogic(rand) {
 }
 
 function shuffledBoard (){
-  // Clear img tag and DOM elements
+  // Clear imgage tag and DOM elements
   let imgTag = document.querySelector("#sas");
   imgTag?.parentElement.removeChild(imgTag);
   document.querySelector('.container').innerHTML = ''

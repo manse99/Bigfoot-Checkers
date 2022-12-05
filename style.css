@@ -13,31 +13,6 @@ img {
   width: 150px;
 }
 
-/* .container {  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 10px 10px;
-    grid-auto-flow: column;
-    grid-auto-flow: row;
-  justify-content: stretch;
-  align-content: stretch;
-  justify-items: stretch;
-  align-items: stretch;
-  grid-template-areas:
-    "alive Bg1 Bg2"
-    "Bg3 SS Bg5"
-    "Bg6 Bg7 dead";
-    border-top: 10em;
-    border-left: 10em;
-    border-bottom: 10em;
-    border-right: 10em;
-    border-color: black;
-  width: 20em;
-  height: 20em;
-  margin-left: auto;
-  margin-right: auto;
-  object-fit: cover;
-} */
 
 #alive { grid-area: alive;
 border-style: solid;
