@@ -8,11 +8,21 @@ img {
   max-width: 460px;
 }
 
+body {
+    background: lightgreen;
+
+}
+
+
 .cell {
   height: 150px;
   width: 150px;
 }
-
+#intro {
+    position: relative;
+    font-family: Roboto;
+    font-size: 75px;
+}
 
 #alive { grid-area: alive;
 border-style: solid;
@@ -33,7 +43,7 @@ background-image: url(./img/hunter.jpeg);
 }
 
 #Bg2 { grid-area: Bg2;
-background:aquamarine;
+background:blue;
  border-style: solid;
 
 }
