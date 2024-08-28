@@ -1,18 +1,12 @@
 
 
-//created an empty array for storage of indexed cells
-let SSrandomArray = []
+let SSrandomArray = [];
 
-//the shuffle function consists of coping one array 
-//having a while loop act on it for our math randomization
-//then pushing back into our array one by one
+// Shuffle function using Fisher-Yates algorithm
 function shuffle(array) {
   let m = array.length, t, i;
-  //while thier remains elements to shuffle
-  while(m) {
-    //pick a remaining element
+  while (m) {
     i = Math.floor(Math.random() * m--);
-    //And swap it with the current eleement.
     t = array[m];
     array[m] = array[i];
     array[i] = t;
@@ -20,17 +14,15 @@ function shuffle(array) {
   return array;
 }
 
-
-
-
-
-
+// Initialize the game board
 function init() {
+  const container = document.querySelector(".container");
+  
   for (let i = 0; i < 9; i++) {
     let div = document.createElement("div");
-    if (i == 0) {
+    if (i === 0) {
       div.id = "alive";
-    } else if (i == 8) {
+    } else if (i === 8) {
       div.id = "dead";
     } else {
       div.id = "Bg" + i;
@@ -40,7 +32,7 @@ function init() {
     div.classList.add("cell");
     SSrandomArray.push(div);
 
-    document.querySelector(".container").appendChild(div);
+    container.appendChild(div);
   }
 
   let ss = document.createElement("img");
@@ -48,9 +40,11 @@ function init() {
   ss.src = "./img/sasrun.jpeg";
   document.querySelector("#Bg4").append(ss);
 }
-// Calling the init() function created above
+
+// Call the init function
 init();
 
+// Check the logic based on the Sasquatch's position
 function checkLogic(rand) {
   if (rand === 0) {
     alert("Congratulations!! SS successfully made it safely out of the woods");
@@ -61,18 +55,20 @@ function checkLogic(rand) {
   }
 }
 
-function shuffledBoard (){
-  // Clear imgage tag and DOM elements
-  let imgTag = document.querySelector("#sas");
-  imgTag?.parentElement.removeChild(imgTag);
-  document.querySelector('.container').innerHTML = ''
+// Shuffle the board and place Sasquatch in a random cell
+function shuffledBoard() {
+  const container = document.querySelector('.container');
+  const imgTag = document.querySelector("#sas");
+  
+  if (imgTag) {
+    imgTag.parentElement.removeChild(imgTag);
+  }
 
-  // Shuffle array of DOM elements and display
-  shuffle(SSrandomArray).forEach(sasquatch => {
-    document.querySelector('.container').appendChild(sasquatch)
-  })
- 
-  // Create new img tag and random select location
+  container.innerHTML = '';
+  shuffle(SSrandomArray).forEach(cell => {
+    container.appendChild(cell);
+  });
+
   let ss = document.createElement("img");
   ss.id = "sas";
   ss.src = "./img/sasrun.jpeg";
@@ -80,7 +76,9 @@ function shuffledBoard (){
   let newSS = document.querySelector(`[data-index="${rand}"]`);
   newSS.append(ss);
 
-  setInterval(() => checkLogic(rand), 100);
+  // Optional: Adjust interval or use a different mechanism to check logic
+  setTimeout(() => checkLogic(rand), 100);
 }
 
-document.querySelector('#myBtn').addEventListener('click', shuffledBoard)
+// Add event listener to the button
+document.querySelector('#myBtn').addEventListener('click', shuffledBoard);
