@@ -1,23 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" type="text/css"  href="style.css">
- <script src="app.js" defer></script>
 
- <title>The Game of Sasquatch</title>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script src="./app.js" defer></script>
+
+  <title>The Game of Sasquatch</title>
 </head>
 
 <body>
- <h1 class="animate-characters"> Welcome to the Save the Sasquatch</h1>
- <p id="into">Let's try to get our furry forest dwelling friend to his home.</p>
- <div class="container" id="changeColor">
-  
-</div>
-<div>
-  <button onclick="" type="button" id="myBtn" height="200px" width="400px" value="start">START</button> 
-</div>
+  <main>
+    <!-- Main heading with animation -->
+     <div class="bigfoot-title">
+    <h1 class="animate-characters" aria-live="polite">Welcome to Save the Sasquatch</h1>
+    </div>
+    <h1 class="board-title">5x5 Board Pattern</h1>
+
+    <!-- Container for the 5x5 board -->
+    <div class="board-container">
+      <!-- The 5x5 grid board -->
+      <div class="board" id="board">
+        <!-- Cells of the board will go here (generated using CSS Grid) -->
+      </div>
+    </div>
+    <!-- Introduction paragraph -->
+    <p id="intro">Let's try to get our furry forest-dwelling friend home safely.</p>
+
+    <!-- Game container with Sasquatch -->
+    <section class="container" id="changeColor">
+      <!-- Sasquatch placeholder -->
+      <div id="sasquatch" class="sasquatch"></div>
+    </section>
+
+    <!-- Button to start the game -->
+    <div class="button-container">
+      <button id="myBtn" class="game-button" aria-label="Start Game">START</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 The Game of Sasquatch</p>
+  </footer>
 </body>
+
 </html>

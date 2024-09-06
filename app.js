@@ -1,84 +1,42 @@
+// Variables for shuffling the Sasquatch image in the 5x5 grid
+const startGridButton = document.getElementById('startBtn');
+const stopGridButton = document.getElementById('stopBtn');
+let shuffleInterval = null;
+let sasquatchImg = './img/bigfoot.png';  // Path to your Sasquatch image
 
-
-let SSrandomArray = [];
-
-// Shuffle function using Fisher-Yates algorithm
-function shuffle(array) {
-  let m = array.length, t, i;
-  while (m) {
-    i = Math.floor(Math.random() * m--);
-    t = array[m];
-    array[m] = array[i];
-    array[i] = t;
-  }
-  return array;
+// Create 25 grid cells for the 5x5 board if not already created
+for (let i = 0; i < 25; i++) {
+  const cell = document.createElement('div');
+  cell.classList.add('cell');
+  board.appendChild(cell);
 }
 
-// Initialize the game board
-function init() {
-  const container = document.querySelector(".container");
-  
-  for (let i = 0; i < 9; i++) {
-    let div = document.createElement("div");
-    if (i === 0) {
-      div.id = "alive";
-    } else if (i === 8) {
-      div.id = "dead";
-    } else {
-      div.id = "Bg" + i;
-    }
+// Function to shuffle the Sasquatch randomly across the cells
+function shuffleSasquatch() {
+  // Remove any existing Sasquatch from the grid
+  document.querySelectorAll('.cell img').forEach(img => img.remove());
 
-    div.dataset.index = i;
-    div.classList.add("cell");
-    SSrandomArray.push(div);
+  // Get a random cell
+  const cells = document.querySelectorAll('.cell');
+  const randomIndex = Math.floor(Math.random() * cells.length);
+  const randomCell = cells[randomIndex];
 
-    container.appendChild(div);
-  }
-
-  let ss = document.createElement("img");
-  ss.id = "sas";
-  ss.src = "./img/sasrun.jpeg";
-  document.querySelector("#Bg4").append(ss);
+  // Create an image element for Sasquatch and insert it into the random cell
+  const img = document.createElement('img');
+  img.src = sasquatchImg;
+  img.classList.add('sasquatch');
+  randomCell.appendChild(img);
 }
 
-// Call the init function
-init();
-
-// Check the logic based on the Sasquatch's position
-function checkLogic(rand) {
-  if (rand === 0) {
-    alert("Congratulations!! SS successfully made it safely out of the woods");
-  } else if (rand === 8) {
-    alert("Oh oh...looks like the hunter found his prey :(");
-  } else {
-    console.log("try again");
+// Start shuffling the Sasquatch every 0.3 seconds
+startGridButton.addEventListener('click', () => {
+  if (!shuffleInterval) {
+    shuffleInterval = setInterval(shuffleSasquatch, 300);
   }
-}
+});
 
-// Shuffle the board and place Sasquatch in a random cell
-function shuffledBoard() {
-  const container = document.querySelector('.container');
-  const imgTag = document.querySelector("#sas");
-  
-  if (imgTag) {
-    imgTag.parentElement.removeChild(imgTag);
-  }
-
-  container.innerHTML = '';
-  shuffle(SSrandomArray).forEach(cell => {
-    container.appendChild(cell);
-  });
-
-  let ss = document.createElement("img");
-  ss.id = "sas";
-  ss.src = "./img/sasrun.jpeg";
-  let rand = Math.floor(Math.random() * 9);
-  let newSS = document.querySelector(`[data-index="${rand}"]`);
-  newSS.append(ss);
-
-  // Optional: Adjust interval or use a different mechanism to check logic
-  setTimeout(() => checkLogic(rand), 100);
-}
-
-// Add event listener to the button
-document.querySelector('#myBtn').addEventListener('click', shuffledBoard);
+// Stop the shuffling when the STOP button is clicked
+stopGridButton.addEventListener('click', () => {
+  clearInterval(shuffleInterval);
+  shuffleInterval = null;
+});
