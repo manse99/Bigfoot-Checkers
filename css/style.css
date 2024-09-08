@@ -13,7 +13,7 @@ body {
 }
 
 /* Title */
- h1{
+ #myBtn h1{
   font-size: 2rem;
   font-weight: bold;
   color: #1f2c2c;
@@ -35,6 +35,8 @@ body {
   grid-template-rows: repeat(5, 60px);    /* 5 rows */
   gap: 5px; /* Space between the cells */
   background-color: #fff;
+  width: 300px;
+  height: 300px;
 }
 
 /* Each cell of the grid */

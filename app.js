@@ -2,7 +2,7 @@
 const startGridButton = document.getElementById('startBtn');
 const stopGridButton = document.getElementById('stopBtn');
 let shuffleInterval = null;
-let sasquatchImg = './img/bigfoot.png';  // Path to your Sasquatch image
+let sasquatchImg = "./img/bigfoot.png"; // Make sure the file extension and name are correct
 
 // Create 25 grid cells for the 5x5 board if not already created
 for (let i = 0; i < 25; i++) {
