@@ -13,9 +13,10 @@ body {
 }
 
 /* Title */
-.board-title {
-  font-size: 2em;
-  color: #2f4f4f;
+ h1{
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2c2c;
   margin: 20px 0;
 }
 
@@ -24,7 +25,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px 0;
+  margin: 20px 0 10px 5px;
 }
 
 /* 5x5 Board grid */
@@ -69,8 +70,9 @@ body {
 .game-button {
   padding: 10px 30px;
   font-size: 25px;
+  font-weight: bold;
   background-color: #a5f3a5;
-  color: white;
+  color: rgb(146, 5, 5);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -129,6 +131,6 @@ footer {
   background-color: #2f4f4f;
   color: white;
   position: fixed;
-  width: 100%;
+  width: 25%;
   bottom: 0;
 }
